@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 def base(request):
-    return render(request,'base.html')
+    return render(request,'main.html')
     
 
 def login(request):
