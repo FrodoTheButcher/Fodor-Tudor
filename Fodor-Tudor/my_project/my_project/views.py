@@ -14,3 +14,6 @@ def test(request):
     password2 = request.GET['password2']
     return render(request,'test.html',{'email':email
     ,'name':name,'password1':password1,'password2':password2})
+
+def register(request):
+    return render(request, 'register.html')
