@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
-def base(request):
+def main(request):
     return render(request,'main.html')
     
 
