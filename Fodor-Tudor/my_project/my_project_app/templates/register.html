@@ -1,12 +1,26 @@
-<link rel="stylesheet" href="./css/style1.css" />
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{%static 'register.css' %}" />
  
 <body>  
 
     <section id="register-section">
         
-        <h1>Title</h1>
-        <a href="#">test</a>
+        <h1>Register</h1>
+        <form action="#" id="form" method="post">
+            {% csrf_token %}
+            <input placeholder="Email adress..." type="text" name="email">
+            <input placeholder="Retype email adress..." type="text" name="email2">
+            <input placeholder="Username..." type="text" name="username">
+            <input placeholder="Password..." type="password" name="password">
+            <input placeholder="Retype password..." type="password" name="password2">
+            <button type="submit" value="submit">Submit!</button>
+        </form>
 
     </section>
 
 </body> 
+
+{% endblock %}
