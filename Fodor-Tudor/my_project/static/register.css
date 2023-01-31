@@ -24,6 +24,12 @@ body {
     right: 0;
 
     margin: auto;
+
+    transition: box-shadow 0.7s;
+}
+
+#register-section:hover{
+    box-shadow: 10px 10px 25px rgba(0,0,0, .7);;
 }
 
 h1 {
@@ -48,11 +54,17 @@ input, button{
     height: 40px;
     border-radius: 5px;
     border-color: aqua;
+    transition: background 0.7s;
     
 }
 
 ::placeholder {
     color: black;
+}
+
+input:focus{
+    background: rgba(23, 185, 169, 0.589);
+    
 }
 
 
