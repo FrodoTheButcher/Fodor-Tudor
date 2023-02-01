@@ -10,3 +10,4 @@ class TaskDb(models.Model):
     def __str__(self):
         return "%s %s"%(self.task,self.completed)
     
+
