@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{%static 'register.css' %}" />
+ 
+<style>
+    #id_username
+    {
+        background-color: blue;
+    }
+</style>
+<body>  
+    
+    <section id="register-section">
+        
+        <h1>Register</h1>
+        <form action="#" id="form" method="POST">
+            {% csrf_token %} 
+            <div id="email">
+            {{form.email.label}} 
+            {{form.email}}
+            </div> 
+
+            <div id="username">
+                {{form.username.label}} 
+                {{form.username}}
+            </div> 
+
+            <div id="password">
+                {{form.password.label}} 
+                {{form.password}}
+            </div> 
+    
+            <div id="password2">
+                {{form.password2.label}} 
+                {{form.password2}}
+            </div> 
+            {{form.submit}}
+        </form>
+
+    </section>
+
+</body> 
+
+{% endblock %}

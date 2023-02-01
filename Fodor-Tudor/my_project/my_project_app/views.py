@@ -1,8 +1,11 @@
 from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_protect
 from .models import TaskDb
-from .forms import TaskForm
+from .forms import TaskForm,CreateUserForm
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+
+
 def main(request):
     return render(request,'main.html')
     
@@ -16,7 +19,15 @@ def test(request):
     ,'name':name,'password1':password1,'password2':password2})
 
 def register(request):
-    return render(request, 'register.html')
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()         
+    return render(request, 'users/register.html',{'form':form})
+
+def login(request):
+    return render(request,'users/login.html')
 
 def task(request):
     if request.method == 'POST':

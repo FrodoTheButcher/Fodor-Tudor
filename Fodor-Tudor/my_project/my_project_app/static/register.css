@@ -26,27 +26,16 @@ body {
     height: 550px;
     border: 2px solid black;
     border-radius: 10px;
-
     position: absolute;
     top:50px;
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
     z-index: 4;
-    transition: box-shadow 0.7s, transform 1s;
-    background-image: url(./sant.jpg);
-    background-size: cover;
-    background-position: center !important;
+   
 }
 
-#register-section:hover{
-    box-shadow: 10px 10px 25px rgba(0,0,0, .7);
-    transform: translateX(400px);
-    
-
-}
 
 h1 {
     text-align: center;
@@ -93,9 +82,7 @@ h1 {
     transition: transform 0.2s;
 }
 
-#terms-box:hover{
-    transform: translateY(-5px);
-}
+
 #terms-accept-text {
     margin-left: 10px;
     color: rgb(255, 255, 255);
@@ -117,11 +104,6 @@ a{
     background: rgba(147, 74, 189, 0.75);
     transition: transform 0.5s ,font-size 0.5s;
     font-size:18px;
-}
-
-#submit-button:hover{
-    transform: translateY(-5px);
-    font-size: 20px;
 }
 
 

@@ -167,7 +167,9 @@
         <div id="base">
             <a href="{% url 'register' %}">Register</a>
             <a href="#">Account</a>
-            <a href="#">Login</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'logout' %}">Logout</a>
+
             <a href="{% url 'main' %}">Home</a>
             <a href="{% url 'task' %}">Your goals!</a>
         </div>
