@@ -38,3 +38,11 @@ def delete(request,list_id):
     messages.success(request,('Item deleted..'))
     return redirect('task')   
 
+def completed(request,list_id):
+    item = TaskDb.objects.get(pk=list_id)
+    item.completed=True
+    item.save()
+    messages.success(request,('Task completed!'))
+    return redirect('task')   
+
+

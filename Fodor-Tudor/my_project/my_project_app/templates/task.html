@@ -2,54 +2,56 @@
 {% block content %}
 
 <style>
-    
-    #Task
-    {
-    width: fit-content;
-    height: fit-content;
-    border: 2px solid black;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 10px;
-    }
-    #Task>form
-    {
-        position: relative;
-        display: inline-block;
-        padding: 10px;
-    }
-    #Task>form>input
-    {
-        padding: 5px;
-        margin: 5px;
+    #page{
+      
+        position: absolute;
+        top: 100px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 </style>
 
+<div id="page" >
+
+        <table class="table table-hover" >
+            <tr>
+                <th>Task name</th>
+                <th>Completed</th>
+                <th>Delete?</th>
+                <th>Completed?</th>
+            </tr>
+            {% for item in all_items %}
+            <tr>
+                <td>{{item.task}}</td>
+                <td>{{item.completed}}</td>
+                <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+                <td><a href="{% url 'completed' item.id %}">Completed</a></td>
+            </tr>
+            {% endfor %}
+        </table><br>
 
 
-<div id="Task" >
-    <div id="TaskList" >
-        {% for item in all_items %}
-        <p>{{item}}</p> <a href="{% url 'delete' item.id%}">Delete</a>
-    {% endfor %}
 
-    </div>
+        <form class="form-group" action="{% url 'task' %}" method="post">
+            {% csrf_token %} 
+            <div class="form-group" >
+                <label for="task">task</label><br>
+                    <input type="text" name="task" placeholder="enter task..." ><br>
+            </div>
+            <div class="form-group" >
+                <label for="priority">Priority</label><br>
+                <input type="text" name="priority" placeholder="Enter priority.."><br>
 
-
-<form action="{% url 'task' %}" method="post">
-    {% csrf_token %} 
-    <input type="text" name="task" placeholder="enter task..." >
-    <input type="text" name="priority" placeholder="Enter priority..">
-    <input type="submit"  value="submit"  >
-    {% if messages %}
-     {% for message in messages %}
-     <h3>{{message}}</h3>
-     {% endfor %}
-    {% endif %}
-</form>
+            </div>
+            <input type="submit" class="btn btn-primary"  value="submit"  >
+            {% if messages %}
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+            {% endif %}
+        </form>
+        </div>
 </div>
 {% endblock %}
