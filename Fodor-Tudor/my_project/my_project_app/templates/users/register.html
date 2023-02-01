@@ -5,10 +5,7 @@
 <link rel="stylesheet" href="{%static 'register.css' %}" />
  
 <style>
-    #id_username
-    {
-        background-color: blue;
-    }
+   
 </style>
 <body>  
     
@@ -17,30 +14,45 @@
         <h1>Register</h1>
         <form action="#" id="form" method="POST">
             {% csrf_token %} 
-            <div id="email">
+            
             {{form.email.label}} 
             {{form.email}}
-            </div> 
-
-            <div id="username">
+           
+            
                 {{form.username.label}} 
                 {{form.username}}
-            </div> 
+           
 
-            <div id="password">
-                {{form.password.label}} 
-                {{form.password}}
-            </div> 
+           
+                {{form.password1.label}} 
+                {{form.password1}}
+            
     
-            <div id="password2">
+            
                 {{form.password2.label}} 
                 {{form.password2}}
-            </div> 
-            {{form.submit}}
+        
+            <input class="btn login_btn" value="register account"  type="submit">
+            {{form.errors}}
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
         </form>
 
     </section>
 
+    <script>
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='Email..';
+form_fields[2].placeholder='Username..';
+form_fields[3].placeholder='Enter password...';
+form_fields[4].placeholder='Re-enter Password...';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
 </body> 
 
 {% endblock %}

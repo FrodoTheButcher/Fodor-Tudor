@@ -158,17 +158,26 @@
             position: relative;
             padding-right: 10px;
         }
+        #user
+
+        {
+            position: absolute;
+            font-size: 10px;
+        }
     </style>
 </head>
 <body>
     {% block content %}
     {% endblock %}
+
+
     <div id="navbar"  >
         <div id="base">
+            <p id="user" >Hello {{request.user}}</p>
             <a href="{% url 'register' %}">Register</a>
             <a href="#">Account</a>
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'loginpage' %}">Login</a>
+            <a href="{% url 'logoutuser' %}">Logout</a>
 
             <a href="{% url 'main' %}">Home</a>
             <a href="{% url 'task' %}">Your goals!</a>

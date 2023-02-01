@@ -23,7 +23,7 @@ urlpatterns = [
     path("task/", views.task, name='task'),
     path("delete/<list_id>", views.delete, name='delete'),
     path("completed/<list_id>", views.completed, name='completed'),
-    path("login/",LoginView.as_view(), name='login'),
-    path("logout/",LogoutView.as_view(), name='logout'),
+    path("login/",views.loginpage, name='loginpage'),
+    path("logout/",views.logoutuser, name='logoutuser'),
 
 ]
