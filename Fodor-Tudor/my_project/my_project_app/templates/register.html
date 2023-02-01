@@ -5,18 +5,20 @@
 <link rel="stylesheet" href="{%static 'register.css' %}" />
  
 <body>  
-
+    <img src="{% static 'teller.gif' %}" id="misto">
     <section id="register-section">
         
         <h1>Register</h1>
         <form action="#" id="form" method="post">
             {% csrf_token %}
-            <input placeholder="Email adress..." type="text" name="email">
-            <input placeholder="Retype email adress..." type="text" name="email2">
-            <input placeholder="Username..." type="text" name="username">
-            <input placeholder="Password..." type="password" name="password">
-            <input placeholder="Retype password..." type="password" name="password2">
-            <button type="submit" value="submit">Submit!</button>
+            <input type="text" name="email" class="formulare-item" placeholder="Email adress..." >
+            <input type="text" name="email2"  class="formulare-item" placeholder="Retype email adress..."  >
+            <input type="text" name="username" class="formulare-item" placeholder="Username..."  >
+            <input type="password" name="password" class="formulare-item" placeholder="Password..."  >
+            <input type="password" name="password2" class="formulare-item" placeholder="Retype password..."  >
+            <input type="checkbox" name="Terms" id="terms-box" value="terms-condition"><span id="terms-accept-text"><b> I agree to the <a href="#">Terms & Condition</a></b></span>
+            <button type="submit"  id="submit-button" value="submit"><b>Register</b></button>
+            
         </form>
 
     </section>
